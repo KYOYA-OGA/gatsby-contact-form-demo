@@ -23,7 +23,10 @@ const IndexPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const { data } = await axios.post('/api/sendEmail', { email, message })
+      const { data } = await axios.post('.netlify/functions/sendEmail', {
+        email,
+        message,
+      })
 
       if (data === 'success') {
         setEmail('')
